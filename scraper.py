@@ -145,6 +145,7 @@ def movie_imdb(imdb_id):
 
     time = bs3.find('table', {'class': 'dataTable labelValueTable'}).find_all('tr', {'class': 'odd'})
     runtime = [text.text for text in time]
+    
     try:
         if ("min (" in (runtime[0].strip())) and (" min)" in (runtime[0].strip())):
             duration = int((runtime[0].strip().split("min (")[1]).split(" min)")[0])
